@@ -1,0 +1,28 @@
+import java.io.*;
+
+public class FileCopy {
+    public static void main(String[] args) {
+        String source = "source.txt";
+        String destination = "destination.txt";
+
+        try {
+            FileInputStream input = new FileInputStream(source);
+            FileOutputStream output = new FileOutputStream(destination);
+
+            int data;
+
+            while ((data = input.read()) != -1) {
+                output.write(data);
+            }
+
+            input.close();
+            output.close();
+
+            System.out.println("File copied successfully.");
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+        } catch (IOException e) {
+            System.out.println("Error while copying the file.");
+        }
+    }
+}
